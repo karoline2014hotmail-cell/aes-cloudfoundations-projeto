@@ -122,7 +122,36 @@ pip install boto3
 - Node.js:
 npm install aws-sdk
 - Uso básico (exemplo com Python):
-import boto3
+
+  Claro! Aqui está um resumo prático sobre infraestrutura automatizada com AWS CloudFormation:
+
+⚙️ O que é AWS CloudFormation?
+O AWS CloudFormation é um serviço que permite provisionar e gerenciar recursos da AWS como código. Você define sua infraestrutura em arquivos YAML ou JSON chamados templates, e o CloudFormation cria e mantém esses recursos automaticamente.
+
+🧱 Componentes Principais
+- Template: Documento que descreve os recursos (EC2, S3, RDS, etc.) e suas configurações.
+- Stack (Pilha): Conjunto de recursos criados a partir de um template.
+- Change Set: Visualização das alterações antes de aplicar atualizações em uma stack.
+
+🚀 Benefícios da Automação
+- Padronização: Infraestrutura consistente em diferentes ambientes.
+- Escalabilidade: Criação de múltiplas instâncias com o mesmo template.
+- Auditoria e controle: Histórico de alterações e rastreabilidade.
+- Integração com CI/CD: Automatize deploys com ferramentas como CodePipeline e GitHub Actions.
+
+🛠️ Exemplo de Template Simples (YAML)
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Infraestrutura com EC2 e S3
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-0abcdef1234567890
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: meu-bucket-automatizado
 
 s3 = boto3.client('s3')
 response = s3.list_buckets()
